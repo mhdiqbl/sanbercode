@@ -76,7 +76,8 @@
         /* 
             Soal No 3
             Loop Associative Array
-            Terdapat data items dalam bentuk array dimensi. Buatlah data tersebut ke dalam bentuk Array Asosiatif. Setiap item memiliki key yaitu : id, name, price, description, source. 
+            Terdapat data items dalam bentuk array dimensi. Buatlah data tersebut ke dalam bentuk Array Asosiatif. 
+            Setiap item memiliki key yaitu : id, name, price, description, source. 
             
             Output: 
             Array ( [id] => 001 [name] => Keyboard Logitek [price] => 60000 [description] => Keyboard yang mantap untuk kantoran [source] => logitek.jpeg ) 
@@ -85,17 +86,30 @@
             Array ( [id] => 004 [name] => Mouse Jerry [price] => 30000 [description] => Mouse yang disukai kucing [source] => jerry.jpeg ) 
 
         */
-        $items = array(array('id'=>'001', 'name'=> 'Keyboard Logitek', 'price' => 60000, 'description' => 'Keyboard yang mantap untuk kantoran', 'source' => 'logitek.jpeg'), array('id'=>'002', 'name'=> 'Keyboard MSI', 'price' => 300000, 'description' => 'Keyboard gaming MSI mekanik', 'source' => 'msi.jpeg'), array('id'=>'003', 'name'=> 'Mouse Genius', 'price' => 50000, 'description' => 'Mouse Genius biar lebih pinter', 'source' => 'genius.jpeg'), array('id'=>'004', 'name'=> 'Mouse Jerry', 'price' => 30000, 'description' => 'Mouse yang disukai kucing', 'source' => 'jerry.jpeg'));
+        $items = [
+            ['001', 'Keyboard Logitek', 60000, 'Keyboard yang mantap untuk kantoran', 'logitek.jpeg'], 
+            ['002', 'Keyboard MSI', 300000, 'Keyboard gaming MSI mekanik', 'msi.jpeg'],
+            ['003', 'Mouse Genius', 50000, 'Mouse Genius biar lebih pinter', 'genius.jpeg'],
+            ['004', 'Mouse Jerry', 30000, 'Mouse yang disukai kucing', 'jerry.jpeg']
+        ];
         
         // Output: 
         
+        
         foreach ($items as $key => $value) {
-        	echo "Array "."[id]"." => ".$value['id']." ";
-        	echo "[name]"." => ".$value['name']." ";
-        	echo "[price]"." => ".$value['price']." ";
-        	echo "[description]"." => ".$value['description']." ";
-        	echo "[source]"." => ".$value['source']." <br>";
+        	   $items = array(
+                'id' => $value[0],
+                'nama' => $value[1],
+                'price' => $value[2],
+                'description' => $value[3],
+                'source' => $value[4],
+               );
+               print_r($items);
+               echo "<br>";
         }
+
+     
+        
         echo "<h3>Soal No 4 Asterix </h3>";
         /* 
             Soal No 4
