@@ -28,7 +28,7 @@
                             @method('delete')
                             <a href="/cast/{{ $item->id }}" class="btn btn-info">Details</a>
                             <a href="/cast/{{ $item->id }}/edit" class="btn btn-success">Edit</a>
-                            <input type="submit" value="Delete" class="btn btn-danger">
+                            <input type="submit" value="delete" class="btn btn-danger">
                         </form>
                     </td>
 
