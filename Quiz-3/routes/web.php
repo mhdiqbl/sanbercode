@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// tes commit ke githubasdsadsada
 Route::view('/', 'layouts.master');
 Route::get('/soal1', 'BukuController@soal1');
 Route::get('/buku','BukuController@index');
