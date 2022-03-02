@@ -27,9 +27,13 @@ Route::view('/table','table.table');
 // Route::put('/cast/{cast_id}','CastController@update');
 // Route::delete('/cast/{cast_id}','CastController@destroy');
 Route::resource('cast','CastController');
+Route::resource('film','FilmController');
+
 
 // CRUD
 // Route::view('/admin2','layouts.admin');
 // Route::view('/register','register');
 // Route::view('/welcome','welcome');
 // Route::get('/','');
+
+Auth::routes();
