@@ -11,12 +11,17 @@
 |
 */
 
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('cast','CastController');
+});
+Route::resource('film','FilmController');
 
 Route::get('/','HomeController@index');
 Route::get('/register','AuthController@register');
 Route::post('/kirim','AuthController@kirim');
 Route::view('/data-table','table.data-table');
 Route::view('/table','table.table');
+
 
 //CRUD CAST
 // Route::get('/cast','CastController@index');
@@ -26,8 +31,7 @@ Route::view('/table','table.table');
 // Route::get('/cast/{cast_id}/edit','CastController@edit');
 // Route::put('/cast/{cast_id}','CastController@update');
 // Route::delete('/cast/{cast_id}','CastController@destroy');
-Route::resource('cast','CastController');
-Route::resource('film','FilmController');
+
 
 
 // CRUD
@@ -36,4 +40,7 @@ Route::resource('film','FilmController');
 // Route::view('/welcome','welcome');
 // Route::get('/','');
 
+
 Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

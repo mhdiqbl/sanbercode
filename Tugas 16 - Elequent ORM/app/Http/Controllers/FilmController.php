@@ -10,6 +10,11 @@ use File;
 
 class FilmController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index','show']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -58,7 +63,7 @@ class FilmController extends Controller
         $film->save();
 
         $request->poster->move(public_path('image'), $fileName);
-        return redirect('/film/create');
+        return redirect('/film');
     }
 
     /**

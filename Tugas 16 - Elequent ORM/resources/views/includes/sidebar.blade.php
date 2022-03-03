@@ -16,7 +16,12 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Muhammad Iqbal</a>
+                @auth
+                    <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                @endauth
+                @guest
+                    <a href="#" class="d-block">BELUM LOGIN</a>
+                @endguest
             </div>
         </div>
 
@@ -37,15 +42,26 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+                @auth
+                    <li class="nav-item menu-open">
+                        <a href="/cast" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Cast
+                            </p>
+                        </a>
+                    </li>
+                @endauth
+
                 <li class="nav-item menu-open">
-                    <a href="/cast" class="nav-link active">
+                    <a href="/film" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Dashboard
-                            <i class="right fas fa-angle-left"></i>
+                            Film
                         </p>
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a href="pages/widgets.html" class="nav-link">
                         <i class="right fas fa-angle-left"></i>
@@ -55,19 +71,42 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./data-table" class="nav-link active">
+                            <a href="/data-table" class="nav-link active">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Table</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./table" class="nav-link">
+                            <a href="/table" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Table</p>
                             </a>
                         </li>
                     </ul>
                 </li>
+                @auth
+                    <li class="nav-item bg-danger">
+                        <a class="nav-link" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                                                                                                 document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+                @endauth
+                @guest
+                    <li class="nav-item bg-primary">
+                        <a href="/login" class="nav-link">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>
+                                Login
+                            </p>
+                        </a>
+                    </li>
+                @endguest
+
 
             </ul>
         </nav>
