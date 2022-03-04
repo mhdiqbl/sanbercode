@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Halaman Selamat Datang
+    Halaman Detail Cast
 @endsection
 
 @section('isi')

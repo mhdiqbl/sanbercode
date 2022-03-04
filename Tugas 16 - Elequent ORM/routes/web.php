@@ -13,8 +13,11 @@
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('cast','CastController');
+    Route::resource('profile','ProfileController')->only(['index','update']);
+    Route::resource('komentar','KomentarController')->only(['store']);
 });
 Route::resource('film','FilmController');
+Route::resource('genre','GenreController');
 
 Route::get('/','HomeController@index');
 Route::get('/register','AuthController@register');

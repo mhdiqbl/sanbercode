@@ -9,17 +9,17 @@
     <form action="/film" method="post" enctype="multipart/form-data">
         @csrf
         <label for="judul">Judul : </label>
-        <input type="text" name="judul" id="judul"><br><br>
+        <input type="text" value="{{ old('judul') }}" name="judul" id="judul"><br><br>
         @error('judul')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <label for="ringkasan">Ringkasan : </label><br>
-        <textarea name="ringkasan" id="ringkasan" cols="30" rows="10"></textarea><br>
+        <textarea name="ringkasan" id="ringkasan" cols="30" rows="10">{{ old('ringkasan') }}</textarea><br>
         @error('ringkasan')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <label for="tahun">Tahun : </label>
-        <input type="text" name="tahun" id="tahun"><br><br>
+        <input type="text" value="{{ old('tahun') }}" name="tahun" id="tahun"><br><br>
         @error('tahun')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror

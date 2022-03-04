@@ -17,7 +17,7 @@
             </div>
             <div class="info">
                 @auth
-                    <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+                    <a href="#" class="d-block">{{ Auth::user()->name }} ({{ Auth::user()->profile->umur }})</a>
                 @endauth
                 @guest
                     <a href="#" class="d-block">BELUM LOGIN</a>
@@ -48,6 +48,26 @@
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Cast
+                            </p>
+                        </a>
+                    </li>
+                @endauth
+                @auth
+                    <li class="nav-item menu-open">
+                        <a href="/profile" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Profile
+                            </p>
+                        </a>
+                    </li>
+                @endauth
+                @auth
+                    <li class="nav-item menu-open">
+                        <a href="/genre" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Genre
                             </p>
                         </a>
                     </li>
@@ -88,7 +108,7 @@
                     <li class="nav-item bg-danger">
                         <a class="nav-link" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
-                                                                                                                 document.getElementById('logout-form').submit();">
+                                                                                                                                     document.getElementById('logout-form').submit();">
                             Logout
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
